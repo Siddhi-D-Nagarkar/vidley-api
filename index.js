@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const express = require('express');
 const genres = require('./routes/genres');
 const home = require("./routes/home");
+const customers = require('./routes/customers');
 const app = express();
 
 mongoose.connect("mongodb://localhost/movies",{ useNewUrlParser: true ,useUnifiedTopology: true})
@@ -11,6 +12,7 @@ mongoose.connect("mongodb://localhost/movies",{ useNewUrlParser: true ,useUnifie
 app.use(express.json());
 app.use("/",home);
 app.use("/api/genres",genres);
+app.use("/api/customers",customers);
 
 
 
